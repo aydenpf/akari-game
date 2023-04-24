@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
 public class ControlView implements FXComponent{
-    private AlternateMvcController controller;
+    private final AlternateMvcController controller;
     public ControlView(AlternateMvcController controller) {
         this.controller = controller;
     }

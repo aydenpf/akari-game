@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 
 public class MessageView implements FXComponent{
-    private AlternateMvcController controller;
+    private final AlternateMvcController controller;
     public MessageView(AlternateMvcController controller) {
         this.controller = controller;
     }

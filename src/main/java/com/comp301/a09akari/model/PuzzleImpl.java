@@ -1,7 +1,7 @@
 package com.comp301.a09akari.model;
 
 public class PuzzleImpl implements Puzzle{
-    private int[][] board;
+    private final int[][] board;
     public PuzzleImpl(int[][] board) {
         int[][] copy = new int[board.length][board[0].length];
         for (int i = 0; i < board.length; i++) {

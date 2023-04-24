@@ -1,22 +1,12 @@
 package com.comp301.a09akari.model;
 
 public class Lamp {
-    private int c;
-    private int r;
-    private Model model;
+    private final int r;
+    private final int c;
 
-    public Lamp(int r, int c, Model model) {
-        if (model == null) {
-            throw new IllegalArgumentException();
-        } else {
-            this.model = model;
-        }
-        if (c < 0 || r < 0 || c >= model.getActivePuzzle().getWidth() || r >= model.getActivePuzzle().getHeight()) {
-            throw new IndexOutOfBoundsException();
-        } else {
-            this.r = r;
-            this.c = c;
-        }
+    public Lamp(int r, int c) {
+        this.r = r;
+        this.c = c;
     }
     public int getC(){
         return c;

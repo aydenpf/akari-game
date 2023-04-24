@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 
 public class AkariView implements FXComponent, ModelObserver {
 
-    private AlternateMvcController controller;
-    private Stage stage;
+    private final AlternateMvcController controller;
+    private final Stage stage;
 
     public AkariView(AlternateMvcController controller, Stage stage) {
         this.controller = controller;
@@ -25,9 +25,9 @@ public class AkariView implements FXComponent, ModelObserver {
         PuzzleView puzzle = new PuzzleView(controller);
         MessageView message = new MessageView(controller);
 
+        layout.getChildren().add(message.render());
         layout.getChildren().add(controls.render());
         layout.getChildren().add(puzzle.render());
-        layout.getChildren().add(message.render());
 
         return layout;
     }

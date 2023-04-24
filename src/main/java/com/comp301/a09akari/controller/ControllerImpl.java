@@ -6,7 +6,7 @@ import com.comp301.a09akari.model.Puzzle;
 import java.util.Random;
 
 public class ControllerImpl implements AlternateMvcController {
-    private Model model;
+    private final Model model;
     public ControllerImpl(Model model) {
         if (model == null) {
             throw new IllegalArgumentException();
