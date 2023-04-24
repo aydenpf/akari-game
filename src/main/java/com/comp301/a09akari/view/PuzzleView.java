@@ -41,8 +41,10 @@ public class PuzzleView implements FXComponent{
                     Label wall = new Label();
                     puzzle.add(wall, c, r);
                 }
+                c++;
             }
             c = 0;
+            r++;
         }
         r = 0;
 

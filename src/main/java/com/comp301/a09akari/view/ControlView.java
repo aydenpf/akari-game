@@ -23,18 +23,21 @@ public class ControlView implements FXComponent{
 
         Button prevButton = new Button("Prev");
         prevButton.setOnAction((ActionEvent e) -> {
+            controller.clickResetPuzzle();
             controller.clickPrevPuzzle();
         });
         controls.getChildren().add(prevButton);
 
         Button randomButton = new Button("Random");
         randomButton.setOnAction((ActionEvent e) -> {
+            controller.clickResetPuzzle();
             controller.clickRandPuzzle();
         });
         controls.getChildren().add(randomButton);
 
         Button nextButton = new Button("Next");
         nextButton.setOnAction((ActionEvent e) -> {
+            controller.clickResetPuzzle();
             controller.clickNextPuzzle();
         });
         controls.getChildren().add(nextButton);
