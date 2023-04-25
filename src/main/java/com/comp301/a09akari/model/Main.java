@@ -10,9 +10,6 @@ public class Main {
 
     model.addLamp(1, 0);
     model.addLamp(0, 1);
-    System.out.println(model.isLit(1, 0));
-    System.out.println(model.isLit(1, 1));
-    System.out.println(model.isClueSatisfied(0, 0));
     System.out.println(model.isSolved());
   }
 }

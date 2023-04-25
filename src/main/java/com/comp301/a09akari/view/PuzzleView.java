@@ -22,8 +22,8 @@ public class PuzzleView implements FXComponent {
   @Override
   public Parent render() {
     GridPane puzzle = new GridPane();
-    puzzle.setHgap(5.0);
-    puzzle.setVgap(5.0);
+    puzzle.setHgap(3.0);
+    puzzle.setVgap(3.0);
 
     // set each cell as a button
     Puzzle activePuzzle = controller.getActivePuzzle();
@@ -31,7 +31,7 @@ public class PuzzleView implements FXComponent {
       while (c < activePuzzle.getWidth()) {
         if (activePuzzle.getCellType(r, c) == CellType.CORRIDOR) {
           Button lamp = new Button();
-          lamp.setPrefSize(75, 75);
+          lamp.setPrefSize(65, 65);
           puzzle.add(lamp, c, r);
           lamp.setOnAction(
               (ActionEvent e) -> {
@@ -47,14 +47,14 @@ public class PuzzleView implements FXComponent {
         }
         if (activePuzzle.getCellType(r, c) == CellType.CLUE) {
           Button clue = new Button();
-          clue.setPrefSize(75, 75);
+          clue.setPrefSize(65, 65);
           clue.setText(String.valueOf(activePuzzle.getClue(r, c)));
           clue.setStyle("-fx-background-color: black;");
           puzzle.add(clue, c, r);
         }
         if (activePuzzle.getCellType(r, c) == CellType.WALL) {
           Button wall = new Button();
-          wall.setPrefSize(75, 75);
+          wall.setPrefSize(65, 65);
           wall.setStyle("-fx-background-color: black;");
           puzzle.add(wall, c, r);
         }

@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ModelImpl implements Model {
   private final PuzzleLibrary puzzles;
-  private int index;
   private final List<Lamp> lamps;
   List<ModelObserver> observers;
+  private int index;
 
   public ModelImpl(PuzzleLibrary library) {
     if (library == null) {
@@ -120,6 +120,7 @@ public class ModelImpl implements Model {
       throw new IndexOutOfBoundsException();
     } else {
       this.index = index;
+      lamps.clear();
       notifyObservers();
     }
   }
