@@ -10,32 +10,33 @@ import javafx.stage.Stage;
 
 public class AkariView implements FXComponent, ModelObserver {
 
-    private final AlternateMvcController controller;
-    private final Stage stage;
+  private final AlternateMvcController controller;
+  private final Stage stage;
 
-    public AkariView(AlternateMvcController controller, Stage stage) {
-        this.controller = controller;
-        this.stage = stage;
-    }
-    @Override
-    public Parent render() {
-        VBox layout = new VBox();
+  public AkariView(AlternateMvcController controller, Stage stage) {
+    this.controller = controller;
+    this.stage = stage;
+  }
 
-        ControlView controls = new ControlView(controller);
-        PuzzleView puzzle = new PuzzleView(controller);
-        MessageView message = new MessageView(controller);
+  @Override
+  public Parent render() {
+    VBox layout = new VBox();
 
-        layout.getChildren().add(message.render());
-        layout.getChildren().add(controls.render());
-        layout.getChildren().add(puzzle.render());
+    ControlView controls = new ControlView(controller);
+    PuzzleView puzzle = new PuzzleView(controller);
+    MessageView message = new MessageView(controller);
 
-        return layout;
-    }
-    @Override
-    public void update(Model model) {
-        Scene scene = new Scene(render());
-        scene.getStylesheets().add("main.css");
-        stage.setScene(scene);
-    }
+    layout.getChildren().add(message.render());
+    layout.getChildren().add(controls.render());
+    layout.getChildren().add(puzzle.render());
 
+    return layout;
+  }
+
+  @Override
+  public void update(Model model) {
+    Scene scene = new Scene(render());
+    scene.getStylesheets().add("main.css");
+    stage.setScene(scene);
+  }
 }
