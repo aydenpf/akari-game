@@ -144,14 +144,8 @@ public class ModelImpl implements Model {
             return false;
           }
         } else if (getActivePuzzle().getCellType(r, c) == CellType.CORRIDOR) {
-          if (isLamp(r, c)) {
-            if (isLampIllegal(r, c)) {
-              return false;
-            }
-          } else {
-            if (!isLit(r, c)) {
-              return false;
-            }
+          if (!isLit(r,c)) {
+            return false;
           }
         }
       }
