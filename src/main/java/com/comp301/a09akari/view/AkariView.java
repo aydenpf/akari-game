@@ -21,6 +21,7 @@ public class AkariView implements FXComponent, ModelObserver {
   @Override
   public Parent render() {
     VBox layout = new VBox();
+    layout.getStyleClass().add("akari");
 
     ControlView controls = new ControlView(controller);
     PuzzleView puzzle = new PuzzleView(controller);
@@ -35,8 +36,9 @@ public class AkariView implements FXComponent, ModelObserver {
 
   @Override
   public void update(Model model) {
-    Scene scene = new Scene(render());
+    Scene scene = new Scene(render(), 750, 750);
     scene.getStylesheets().add("main.css");
+    stage.centerOnScreen();
     stage.setScene(scene);
   }
 }

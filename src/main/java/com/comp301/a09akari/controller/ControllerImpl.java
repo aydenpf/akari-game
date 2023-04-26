@@ -18,19 +18,31 @@ public class ControllerImpl implements AlternateMvcController {
 
   @Override
   public void clickNextPuzzle() {
-    model.setActivePuzzleIndex(model.getActivePuzzleIndex() + 1);
+    try {
+      model.setActivePuzzleIndex(model.getActivePuzzleIndex() + 1);
+    } catch (IndexOutOfBoundsException e) {
+      model.setActivePuzzleIndex(model.getActivePuzzleIndex());
+    }
   }
 
   @Override
   public void clickPrevPuzzle() {
-    model.setActivePuzzleIndex(model.getActivePuzzleIndex() - 1);
+    try {
+      model.setActivePuzzleIndex(model.getActivePuzzleIndex() - 1);
+    } catch (IndexOutOfBoundsException e) {
+      model.setActivePuzzleIndex(model.getActivePuzzleIndex());
+    }
   }
 
   @Override
   public void clickRandPuzzle() {
     Random random = new Random();
     int index = random.nextInt(model.getPuzzleLibrarySize());
-    model.setActivePuzzleIndex(index);
+    if (index == model.getActivePuzzleIndex()) {
+      clickRandPuzzle();
+    } else {
+      model.setActivePuzzleIndex(index);
+    }
   }
 
   @Override
@@ -72,5 +84,17 @@ public class ControllerImpl implements AlternateMvcController {
   @Override
   public Puzzle getActivePuzzle() {
     return model.getActivePuzzle();
+  }
+
+  public boolean isLampIllegal(int r, int c) {
+    return model.isLampIllegal(r, c);
+  }
+
+  public int getActivePuzzleIndex() {
+    return model.getActivePuzzleIndex();
+  }
+
+  public int getPuzzleLibrarySize() {
+    return model.getPuzzleLibrarySize();
   }
 }

@@ -16,6 +16,7 @@ public class ControlView implements FXComponent {
   @Override
   public Parent render() {
     HBox controls = new HBox();
+    controls.getStyleClass().add("control");
 
     Button resetButton = new Button("Reset");
     resetButton.setOnAction(

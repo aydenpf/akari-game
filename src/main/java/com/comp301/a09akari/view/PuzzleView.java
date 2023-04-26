@@ -24,6 +24,7 @@ public class PuzzleView implements FXComponent {
     GridPane puzzle = new GridPane();
     puzzle.setHgap(3.0);
     puzzle.setVgap(3.0);
+    puzzle.getStyleClass().add("puzzleView");
 
     // set each cell as a button
     Puzzle activePuzzle = controller.getActivePuzzle();
@@ -31,7 +32,9 @@ public class PuzzleView implements FXComponent {
       while (c < activePuzzle.getWidth()) {
         if (activePuzzle.getCellType(r, c) == CellType.CORRIDOR) {
           Button lamp = new Button();
+          lamp.setMinSize(65, 65);
           lamp.setPrefSize(65, 65);
+          lamp.setMaxSize(65, 65);
           puzzle.add(lamp, c, r);
           lamp.setOnAction(
               (ActionEvent e) -> {
@@ -39,22 +42,36 @@ public class PuzzleView implements FXComponent {
               });
 
           if (controller.isLamp(GridPane.getRowIndex(lamp), GridPane.getColumnIndex(lamp))) {
-            lamp.setText("Lit");
-            lamp.setStyle("-fx-background-image: url(light-bulb.png);");
+            lamp.setText("Lamp");
+            if (controller.isLampIllegal(
+                GridPane.getRowIndex(lamp), GridPane.getColumnIndex(lamp))) {
+              lamp.getStyleClass().add("lampIllegal");
+            } else {
+              lamp.getStyleClass().add("lampLegal");
+            }
           } else if (controller.isLit(GridPane.getRowIndex(lamp), GridPane.getColumnIndex(lamp))) {
             lamp.setStyle("-fx-background-color: yellow;");
           }
         }
         if (activePuzzle.getCellType(r, c) == CellType.CLUE) {
           Button clue = new Button();
-          clue.setPrefSize(65, 65);
-          clue.setText(String.valueOf(activePuzzle.getClue(r, c)));
-          clue.setStyle("-fx-background-color: black;");
           puzzle.add(clue, c, r);
+          clue.setMinSize(65, 65);
+          clue.setPrefSize(65, 65);
+          clue.setMaxSize(65, 65);
+          clue.setText(String.valueOf(activePuzzle.getClue(r, c)));
+          if (controller.isClueSatisfied(
+              GridPane.getRowIndex(clue), GridPane.getColumnIndex(clue))) {
+            clue.getStyleClass().add("clueSolved");
+          } else {
+            clue.getStyleClass().add("clueTextUnsolved");
+          }
         }
         if (activePuzzle.getCellType(r, c) == CellType.WALL) {
           Button wall = new Button();
+          wall.setMinSize(65, 65);
           wall.setPrefSize(65, 65);
+          wall.setMaxSize(65, 65);
           wall.setStyle("-fx-background-color: black;");
           puzzle.add(wall, c, r);
         }

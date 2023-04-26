@@ -5,3 +5,56 @@
  * JavaFX start() method:
  *   scene.getStylesheets().add("main.css");
  */
+.clueTextUnsolved {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 25px;
+    -fx-background-color: black;
+}
+
+.clueSolved {
+    -fx-text-fill: #ffff00;
+    -fx-font-size: 25px;
+    -fx-background-color: black;
+}
+
+.lampLegal {
+    -fx-text-fill: #000000;
+    -fx-background-color: yellow;
+}
+
+.lampIllegal {
+    -fx-text-fill: #ff0000;
+    -fx-background-color: yellow;
+}
+
+.messageCorrect {
+    -fx-text-fill: #008000;
+    -fx-font-weight: bold;
+}
+
+.messageIncorrect {
+    -fx-font-weight: bold;
+}
+
+.control {
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-font-weight: bold;
+    -fx-font: 15px Impact;
+}
+
+.akari {
+    -fx-spacing: 5px;
+    -fx-alignment: center;
+    -fx-margin-top: 5px;
+}
+
+.message {
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+.puzzleView {
+    -fx-alignment: center;
+}
