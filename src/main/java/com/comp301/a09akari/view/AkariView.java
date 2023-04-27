@@ -23,7 +23,8 @@ public class AkariView implements FXComponent, ModelObserver {
   public Parent render() {
     BorderPane layout = new BorderPane();
     layout.getStyleClass().add("akari");
-    layout.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, new CornerRadii(1), null)));
+    layout.setBackground(
+        new Background(new BackgroundFill(Color.LIGHTBLUE, new CornerRadii(1), null)));
 
     ControlView controls = new ControlView(controller);
     PuzzleView puzzle = new PuzzleView(controller);
@@ -32,7 +33,6 @@ public class AkariView implements FXComponent, ModelObserver {
     layout.setTop(controls.render());
     layout.setCenter(puzzle.render());
     layout.setBottom(message.render());
-
 
     return layout;
   }
