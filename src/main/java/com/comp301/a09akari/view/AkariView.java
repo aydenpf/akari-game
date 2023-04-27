@@ -5,7 +5,8 @@ import com.comp301.a09akari.model.Model;
 import com.comp301.a09akari.model.ModelObserver;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class AkariView implements FXComponent, ModelObserver {
@@ -20,16 +21,18 @@ public class AkariView implements FXComponent, ModelObserver {
 
   @Override
   public Parent render() {
-    VBox layout = new VBox();
+    BorderPane layout = new BorderPane();
     layout.getStyleClass().add("akari");
+    layout.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, new CornerRadii(1), null)));
 
     ControlView controls = new ControlView(controller);
     PuzzleView puzzle = new PuzzleView(controller);
     MessageView message = new MessageView(controller);
 
-    layout.getChildren().add(message.render());
-    layout.getChildren().add(controls.render());
-    layout.getChildren().add(puzzle.render());
+    layout.setTop(controls.render());
+    layout.setCenter(puzzle.render());
+    layout.setBottom(message.render());
+
 
     return layout;
   }

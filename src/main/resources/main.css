@@ -46,13 +46,14 @@
 .akari {
     -fx-spacing: 5px;
     -fx-alignment: center;
-    -fx-margin-top: 5px;
+    -fx-margin-top: 10px;
 }
 
 .message {
     -fx-spacing: 10px;
     -fx-alignment: center;
     -fx-font-weight: bold;
+    -fx-font: 30px Impact;
 }
 
 .puzzleView {
